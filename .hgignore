@@ -1,0 +1,31 @@
+syntax: glob
+# Compiled programs and libraries:
+*.exe
+*.o
+*.lo
+*.la
+*.so
+*.a
+# Backups:
+*.bak
+.*~
+*~
+\#*#
+.#*
+# Mac OS X thing:
+.DS_Store
+# Vim swap (temporary) files:
+.*.swp
+.swp
+.swo
+# Python compiled files:
+*.pyc
+*.pyo
+# LaTeX temporary files:
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
