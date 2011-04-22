@@ -44,7 +44,7 @@ struct Vert {
 	}
 
 	void set(int p) {
-		val[p/sizeof(long long)] |= 1 << (p % (sizeof(long long)));
+		val[p/SI] |= 1 << (p % SI);
 	}
 
 	void clear() {
