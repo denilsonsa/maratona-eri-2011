@@ -65,5 +65,6 @@ int main() {
 			printf("%lld %lld\n", m, n);
 		}
 	}
+	return 0;
 }
 
