@@ -12,8 +12,7 @@ using namespace std;
 
 #define MAX 1000
 
-class Point {
-  public:
+struct Point {
 	int x, y;
 
 	bool operator== (const Point& other) {
