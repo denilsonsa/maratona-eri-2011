@@ -1,8 +1,13 @@
-2
-0.85 0.15
-0.7 0.3
-3
-0.3 0.4 0.3
-0.5 0.2 0.3
-0.7 0.1 0.2
+4
+1 SUBSCRIBE ana, carlos
+1 SUBSCRIBE ana, sabrina
+2 PUBLISH sabrina
+3 SUBSCRIBE carlos, ana
+6
+1 SUBSCRIBE antonio, barbara
+2 SUBSCRIBE barbara, cristina
+3 SUBSCRIBE cristina, antonio
+4 PUBLISH antonio
+4 PUBLISH barbara
+4 PUBLISH cristina
 0
