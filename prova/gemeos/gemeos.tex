@@ -1,0 +1,44 @@
+\problema{Centros de Distribuição Gêmeos}
+
+\begin{descricao}
+A Empresa Rural Internacional (ERI) está buscando expandir seus negócios. Para isso, ela precisa encontrar uma nova cidade para instalar um novo centro de distribuição. Entretanto, como algum centro pode ficar inoperante, como aconteceu no último verão devido às chuvas, ela quer se certificar de que não ficará sem distribuir seus produtos caso alguma cidade fique incomunicável. Para isso, ao invés de instalar seu novo centro de distribuição em uma única cidade, ela escolherá duas cidades vizinhas, de forma a garantir que haja redundância, caso algum problema ocorra com uma das localidades.
+
+Simonal, diretor de logística da ERI, conhece bem a região e seus possíveis clientes. Dada uma cidade, Simonal sabe a área de alcance de sua empresa, ou seja, as cidades alcançadas caso um novo centro de distribuição seja instalado nessa cidade. A fim de que a redundância desejada seja satisfeita, as duas cidades candidatas a receber o novo centro de distribuição devem ter a mesma área de alcance.
+
+Você, estagiário buscando um aumento de salário para comprar a mais nova expansão do seu MMORPG favorito, quer agradar o seu chefe, Dionísio Cabeço Fechantes, também conhecido como Dudu, e, usando os dados obtidos com Simonal, quer mostrar o quão bom você é em computação e contar de quantas formas distintas estas cidades podem ser escolhidas.\end{descricao}
+
+\begin{entrada}
+A entrada é composta por diferentes casos de teste. A primeira linha de cada caso de teste contém $n$ e $m$, $n\leq1000$ e $m \leq \frac{n(n-1)}{2}$, onde $n$ é o número de cidades da região. A seguir, $m$ linhas, contendo dois inteiros distintos $a$ e $b$ cada, $1 \leq a,b \leq n$, indicando que $a$ faz parte da área de alcance de $b$ e vice-versa.
+
+A entrada termina com $n=m=0$. Essa linha não deve ser processada.
+
+\end{entrada}
+
+
+
+\begin{saida}
+Para cada caso de teste, seu programa deve imprimir uma linha contendo o número de diferentes pares de cidades que podem receber novos centros.
+\end{saida}
+
+\exemplos{0.47}{0.47}
+{3 2\pl
+1 2\pl
+2 3\pl
+3 3\pl
+3 2\pl
+1 3\pl
+2 1\pl
+5 5\pl
+1 2\pl
+1 5\pl
+2 3\pl
+2 5\pl
+4 5\pl
+0 0 
+}
+{0\pl
+3\pl
+0
+}
+
+%\pb

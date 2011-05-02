@@ -13,14 +13,14 @@ using namespace std;
 
 
 #define MAXN (1000*1000)
-#define MAXM (1000*1000)
+#define MAXM (1000)
 #define INF 0x3f3f3f3f
 #define MAXSTR 15
 
 map<string,int> nome;
-set<int>  segue[MAXN];
+set<int>  segue[MAXM];
 //set<int> ehseguido[MAXN];
-set<int> diaperdido[MAXN];
+set<int> diaperdido[MAXM];
 
 
 int main()
@@ -104,6 +104,8 @@ int main()
 				}
 			}
 		}
+		
+		assert(usados <= MAXM);
 		
 		menor = INF;
 		

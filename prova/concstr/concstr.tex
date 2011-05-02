@@ -1,0 +1,35 @@
+\problema{Concatenação de Strings}
+
+\begin{descricao}
+
+Seja $s$ uma string. Denotamos por $s^n$ a concatenação de $n$ cópias de $s$. Por exemplo, se $s =$ ``eri'' e $n=3$, temos $s^3 =$ ``erierieri''.
+
+
+Dadas strings $r$ e $s$, sua tarefa é determinar se existem inteiros $m$ e $n$ tais que $r^m = s^n$.
+\end{descricao}
+
+\begin{entrada}
+
+Cada linha da entrada conterá duas strings, separadas por um espaço, compostas apenas por letras minúsculas. Cada uma das strings terá pelo menos $1$ e no máximo $1.000.000$ caracteres. A última linha da entrada será composta por duas strings ``\#' separadas por espaço. Esta linha não deve ser processada.
+\end{entrada}
+
+\begin{saida}
+Para cada linha da entrada, você deve gerar uma linha de saída contendo os menores inteiros $m$ e $n$ separados por espaço caso tais inteiros existam, e ``NAO'', em caso contrário.
+\end{saida}
+
+\exemplos{0.47}{0.47}
+{aa aaa\pl
+abra cadabra\pl
+abcabcabcabcabcabc abcabcabcabc\pl
+rai mano\pl
+\# \#
+}
+{3 2\pl
+NAO\pl
+2 3\pl
+NAO
+}
+
+%\pb
+
+
