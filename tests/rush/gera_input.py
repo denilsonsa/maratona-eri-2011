@@ -10,7 +10,7 @@ MAX_N = 100  # nos do grafo
 MAX_W = 10  # capacidade maxima de cada aresta
 
 def gera():
-	N = randint(1, MAX_N)
+	N = randint(2, MAX_N)  # um grafo interessante precisa de, no minimo, 2 nós
 	P = randint(1, min(MAX_P, 2*MAX_N))  # range escolhido empiricamente para
 	                                     # ter uma boa distribuicao de respostas
 	p_sink = 0.1  # probabilidade de um nó ser um bairro de interesse.
