@@ -2,7 +2,7 @@
 from random import randint
 
 # gera varios PREMIADO
-MAX_NUM = int('9'*20)
+MAX_NUM = int('9'*30)
 for i in xrange(1, 100):
 	if 42**i <= MAX_NUM:
 		print 42**i
