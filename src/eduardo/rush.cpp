@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-#define NUM_INTERSECOES 50
+#define NUM_INTERSECOES 110
 
 #define TRACE(x) 
 #define PRINT(x...) TRACE(printf(" -> " x))
