@@ -9,6 +9,8 @@ int qualidade[MAX];
 double total[MAX];
 double sistema[MAX][MAX];
 
+#define ERRO 0.000001
+
 inline
 void swap(double *a, double *b) {
     double t = *a;
@@ -92,10 +94,11 @@ int main(void) {
         sistema[max][max] = -0.1;
         for(i=0; i<n; i++) {
             sistema[i][i] = sistema[i][n] / sistema[i][i];
-            if (sistema[i][i] > sistema[max][max])
+            printf("%3.10f ", sistema[i][i]);
+            if (sistema[i][i] > sistema[max][max] + ERRO)
                 max = i;
         }
-        printf("%d\n", max+1);
+        printf("\n%d\n", max+1);
     }
 
     return 0;

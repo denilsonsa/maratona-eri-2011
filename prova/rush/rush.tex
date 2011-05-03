@@ -1,0 +1,45 @@
+\problema{Hora do rush}
+
+\begin{descricao}
+Em toda cidade vemos que algumas vias são mais largas que outras. Isto é, algumas tem mais faixas de rolamento para veículos do que outras. Cada faixa de rolamento a mais numa via significa que mais carros podem ir de um extremo a outro desta via num mesmo intervalo de tempo.
+
+É comum termos a sensação de que, na hora do rush (aquele período em que a maior parte da população se desloca de casa para o trabalho ou vice-versa), nunca existem faixas de rolamento suficientes por conta do congestionamento que se forma.
+
+Roberval, nosso herói trabalhador, trabalha em uma empresa muito preocupada com a qualidade de vida de seus funcionários. O novo projeto da empresa é mudar a hora de saída do trabalho para um horário de menos trânsito. Roberval, claro, foi eleito para descobrir qual é o melhor horário.
+
+Sua idéia é bem simples: simular a situação do trânsito em diferentes horários na cidade. Mais especificamente, o trânsito do local de trabalho para alguns bairros de interesse, onde moram os funcionários da empresa.
+
+Dado um mapa de ruas da cidade onde Roberval mora e a quantidade de faixas de rolamento livres em cada trecho para um dado horário, diga se é possível que todos os funcionários da empresa saiam do trabalho ao mesmo tempo ou se irão encontrar a mesma situação desagradável do dia-a-dia: mais carros na rua do que as vias comportam.
+
+Assuma que o prédio possui várias saídas de garagem para cada rua adjacente ao prédio, e que todos os cidadãos da cidade são educados no trânsito, ou seja, ninguém trafega no espaço entre dois carros posicionados em faixas de rolamento adjacentes.
+
+\end{descricao}
+
+\begin{entrada}
+A entrada é composta por vários casos de teste.
+
+A primeira linha de cada caso de teste contém três inteiros, $p$, $n$ e $m$, ($1 \leq p \leq 1000$, $2 \leq n \leq 100$, $1 \leq m \leq \frac{n(n-1)}{2}$) representando o número de funcionários da empresa, o número de interseções e o número de vias existentes na cidade, respectivamente. As interseções são numeradas de $1$ a $n$, onde $1$ representa o local de trabalho. As interseções que não possuem vias levando a outras interseções representam os bairros de interesse.
+
+Em seguida, seguem-se $m$ linhas, cada uma contendo três inteiros $u$, $v$ e $w$ ($1 \leq u, v \leq n$, $1 \leq w \leq 10$) representando uma via que leva da interseção $u$ até a interseção $v$ com $w$ faixas de rolamento livres. Entre duas interseções existe, no máximo, uma única via em cada direção.
+
+A entrada termina com $p = n = m = 0$. Este caso não deverá ser processado.\end{entrada}
+
+\begin{saida}
+Para cada caso de teste haverá uma linha na saída. Caso seja possível que todos os $p$ funcionários saiam ao mesmo tempo do trabalho sem enfrentar trânsito até suas casas, imprima ``HORARIO BOM''. Caso contrário, imprima ``HORARIO RUIM''. Atenção, não utilize acentuação!
+\end{saida}
+
+\exemplos{0.47}{0.47}
+{1 2 1\pl
+1 2 1\pl
+4 4 4\pl
+1 2 2\pl
+1 3 2\pl
+2 4 2\pl
+3 4 1\pl
+0 0 0
+}
+{HORARIO BOM\pl
+HORARIO RUIM
+}
+
+%\pb

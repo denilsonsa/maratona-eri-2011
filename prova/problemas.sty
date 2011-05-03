@@ -1,0 +1,182 @@
+\addtolength{\textwidth}{1.3cm}
+\addtolength{\textheight}{1.4cm}
+\addtolength{\hoffset}{-1.1cm}
+\addtolength{\voffset}{-1.2cm}
+
+\newcommand{\pbproblema}{Problema}
+\newcommand{\pbfonte}{fonte}
+\newcommand{\pbou}{ou}
+\newcommand{\pbdescricao}{Descrição}
+\newcommand{\pbexemplo}{Exemplo}
+\newcommand{\pbentrada}{Entrada}
+\newcommand{\pbsaida}{Saída}
+%\newcommand{\pbpqb}{Almost blank page}
+\newcommand{\pbpqb}{\phantom{.}}
+
+\newcommand{\pbatual}{}
+
+\newcommand{\incluiproblema}[1]
+{
+	\renewcommand{\pbatual}{#1}
+	\include{#1/#1}
+}
+
+\newcommand{\capa}[5]
+{
+	\thispagestyle{empty}
+
+	\vspace*{\stretch{5}}
+
+	\begin{center}
+		\textbf{\Large #1}
+
+		\vspace*{\stretch{2}}
+
+%		\includegraphics[scale=#3]{#2}
+
+		\vspace*{\stretch{2}}
+
+		\textbf{\Large #4}
+
+		\vspace*{\stretch{1}}
+
+		\textbf{\large #5}
+	\end{center}
+
+	\vspace*{\stretch{7}}
+
+	\newpage
+
+	\thispagestyle{empty}
+
+	\phantom{.}
+
+	\newpage
+}
+
+\newcounter{cntproblema}
+\newcommand{\problema}[1]
+{
+	\stepcounter{cntproblema}
+
+	\begin{center}
+		{\huge
+			\textsf{\pbproblema{} \Alph{cntproblema}}		\\
+			\textsf{#1}					\\
+		}
+		\bigskip
+		\emph{\pbfonte{}}: \texttt{\pbatual{}.c}, \texttt{\pbatual{}.cpp} \emph{\pbou{}} \texttt{\pbatual{}.java}
+		\bigskip
+	\end{center}
+}
+
+\newenvironment{intro}
+{
+	\vspace{1ex}
+}
+{
+}
+
+\newenvironment{descricao}
+{
+	\section*{\pbdescricao{}}
+	\indent\par
+}
+{
+}
+
+\newenvironment{entrada}
+{
+	\section*{\pbentrada{}}
+	\indent\par
+}
+{
+}
+
+\newenvironment{saida}
+{
+	\section*{\pbsaida{}}
+	\indent\par
+}
+{
+}
+
+\newlength{\exinwidth}
+\newlength{\exoutwidth}
+\newcommand{\exemplos}[4]
+{
+	\vspace{2ex}
+	\setlength{\exinwidth}{#1\textwidth}
+	\setlength{\exoutwidth}{#2\textwidth}
+	\begin{center}
+		\begin{minipage}[c]{\textwidth}
+			\section*{\pbexemplo{}}
+
+			\begin{tabular}{p{\exinwidth}p{\exoutwidth}}
+			\textbf{\pbentrada{}} & \textbf{\pbsaida{}}
+			\end{tabular}
+
+			\begin{tabular}{|p{\exinwidth}|p{\exoutwidth}|}
+			\hline
+			\texttt{#3} & \texttt{#4} \\
+			\hline
+			\end{tabular}
+		\end{minipage}
+	\end{center}
+}
+\newcommand{\pl}{\newline}
+\newcommand{\eb}{\phantom{.}}
+\newcommand{\lb}{\eb\pl}
+
+\newenvironment{comfinais}
+{
+	\bigskip
+	\indent\par
+}
+{
+}
+
+\newcommand{\figura}[3]
+{
+	\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[scale=#2]{\pbatual/\pbatual#1}
+	\caption{#3}
+	\label{fig:\pbatual#1}
+	\end{center}
+	\end{figure}
+}
+\newcommand{\reffig}[1]{\ref{fig:\pbatual#1}}
+
+\newcommand{\tabela}[4]
+{
+	\begin{table}[!ht]
+	\begin{center}
+	\caption{#2}
+	\label{tab:\pbatual#1}
+	\begin{tabular}{#3}
+		#4
+	\end{tabular}
+	\end{center}
+	\end{table}
+}
+\newcommand{\reftab}[1]{\ref{tab:\pbatual#1}}
+
+\newcommand{\chave}[1]{\left\{\begin{array}{ll}#1\end{array}\right.}
+\newcommand{\nv}[2]{#1,\!#2}
+\newcommand{\mathtx}[1]{\mathrm{#1}}
+
+\newcommand{\pb}
+{
+	\newpage
+
+	\thispagestyle{empty}
+
+	\vspace*{\stretch{1}}
+
+	\begin{center}
+		\textbf{\large \pbpqb{}}
+	\end{center}
+
+	\vspace*{\stretch{1}}
+}
