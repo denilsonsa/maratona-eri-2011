@@ -5,11 +5,11 @@ Desde que saiu da cadeia, Marcos não consegue parar de beber. Ele, um ex-maraton
 
 Toda noite, antes de sair para beber, Marcos avisa a você a qual bar da cidade ele vai, assim você sempre sabe onde sua noite de bebedeira começa. Depois disso, depois de cada dose bebida, há uma certa chance de Marcos ir a outro bar. Você sabe uma maneira simples de estimar essa chance: a probabilidade de Marcos ir a outro bar é proporcional à divisão da qualidade do bar pela distância entre o bar onde ele está agora e o bar de destino. Também há uma chance de Marcos continuar no mesmo bar, que é proporcional à raíz da qualidade daquele bar.
 
-A qualidade do bar $i$ é dada por $Q_i$ e a distância entre os bares $i$ e $j$ é dada por $D_{i,j}$. Assim, de maneira geral, a probabilidade $P_{i,j}$ de Marcos ir do bar $i$ ao bar $j$ é dada por:
+A qualidade do bar $i$ é dada por $Q_i$ e a distância entre os bares $i$ e $j$ é dada por $D_{i,j}=D_{j,i}$. Assim, de maneira geral, a probabilidade $P_{i,j}$ de Marcos ir do bar $i$ ao bar $j$ é dada por:
 
 \begin{equation} P_{i,j} = \dfrac{\dfrac{Q_j}{D_{i,j}}}{\displaystyle\sum_{k \neq i}{\dfrac{Q_k}{D_{i,k}}} + \sqrt{Q_i}} \end{equation}
 
-Já a probabilidade de Marcos permanecer no mesmo bar é dado por:
+Já a probabilidade de Marcos permanecer no mesmo bar é dada por:
 
 \begin{equation} P_{i,i} = \dfrac{\sqrt{Q_i}}{\displaystyle\sum_{k \neq i}{\dfrac{Q_k}{D_{i,k}}} + \sqrt{Q_i}} \end{equation}
 
@@ -17,11 +17,11 @@ Note que as fórmulas garantem a seguinte propriedade:
 
 \begin{equation} \displaystyle\sum_{j=1}^{n}{P_{i,j}} = 1, \forall 1 \leq i \leq n \end{equation}
 
-Como Marcos bebe muito mais que a média, uma das histórias que ele mais gosta de contar quando está bêbado é a de como ele ganhou um campeonato russo de virada de \textit{vodka}, você sabe que ele pode tomar uma quantidade arbitrariamente grande de doses. Para fins práticos, assuma que Marcos bebe uma quantidade infinita de doses numa noite (toma mardita!!!).
+Como Marcos bebe muito mais que a média, uma das histórias que ele mais gosta de contar quando está bêbado é a de como ele ganhou um campeonato russo de virada de \textit{vodka}, você sabe que ele pode tomar uma quantidade arbitrariamente grande de doses. Para fins práticos, assuma que Marcos bebe uma quantidade infinita de doses numa noite.
 
 Assim, dados como entrada os bares, suas qualidade e suas distâncias, faça um programa que descubra em qual bar Marcos estará com maior probabilidade depois de sua noite de bebedeira.
 
-Dica (opcional): Não se esqueça que a probabilidade de Marcos estar em num bar é sempre igual a 1.
+Dica: Não se esqueça que a probabilidade de Marcos estar em num bar é sempre igual a 1.
 \end{descricao}
 
 \begin{entrada}
@@ -39,7 +39,14 @@ Seu programa deve produzir uma linha de saída para cada caso de teste. Esta linh
 \end{saida}
 
 \exemplos{0.47}{0.47}
-{4 1\pl
+{3 1\pl
+1\pl
+2\pl
+3\pl
+0 1 2\pl
+1 0 2\pl
+2 2 0\pl
+4 1\pl
 3\pl
 8\pl
 5\pl
@@ -50,7 +57,8 @@ Seu programa deve produzir uma linha de saída para cada caso de teste. Esta linh
 3 3 4 0\pl
 0 0
 }
-{asd
+{3\pl
+2
 }
 
 %\pb
