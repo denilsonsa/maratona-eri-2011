@@ -29,3 +29,4 @@ syntax: glob
 *.snm
 *.toc
 *.vrb
+prova/prova\.synctex
