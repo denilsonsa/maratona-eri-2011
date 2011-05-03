@@ -1,11 +1,12 @@
 #include <cstdio>
 #include <cstdlib>
+#include <cctype>
 #include <cstring>
 #include <vector>
 
 using namespace std;
 
-#define MAX 32
+#define MAX 128
 
 char m[MAX][MAX];
 int foi[MAX][MAX];
@@ -13,40 +14,56 @@ int foi[MAX][MAX];
 vector<vector<int>> v[5];
 int delta[4][2] = { {+1, 0}, {-1, 0}, {0, +1}, {0, -1}};
 
-int n;
+int l, c;
 
 bool pode(int x, int y) {
     int i;
 
-    if (x<0 or y<0 or x>=n or y>=n or m[x][y]!='.')
+    if (x<0 or y<0 or x>=l or y>=c or m[x][y]!='.')
         return false;
 
     for (i=x-1; i>=0 and m[i][y]=='.'; --i)
         if(foi[i][y]) return false;
-    for (i=x+1; i<n  and m[i][y]=='.'; ++i)
+    for (i=x+1; i<l  and m[i][y]=='.'; ++i)
         if(foi[i][y]) return false;
 
     for (i=y-1; i>=0 and m[x][i]=='.'; --i)
         if(foi[x][i]) return false;
-    for (i=y+1; i<n  and m[x][i]=='.'; ++i)
+    for (i=y+1; i<c  and m[x][i]=='.'; ++i)
         if(foi[x][i]) return false;
 
     return true;
 }
 
-void resolve2(void) {
-    int i, j;
+bool resolve2(void) {
+    int i, j, k;
 
-    for (i=0; i<n; ++i) {
-        for (j=0; j<n; ++j) {
+    for (i=0; i<l; ++i) {
+        for (j=0; j<c; ++j) {
             if (m[i][j]=='.' and !foi[i][j] and pode(i,j)) {
-                foi[i][j] = 1;
+                for (k=0; k<4; ++k) {
+                    int x = i+delta[k][0];
+                    int y = j+delta[k][1];
+                    if (x>=0 and y>=0 and x<l and y<c and isdigit(m[x][y])) {
+                        break;
+                    }
+                }
+                if (k==4)
+                    foi[i][j] = 1;
             }
         }
     }
 
-    for (i=0; i<n; ++i) {
-        for (j=0; j<n; ++j) {
+    for (i=0; i<l; ++i) {
+        for (j=0; j<c; ++j) {
+            if (pode(i,j) and !foi[i][j]) {
+                printf("%d %d\n", i, j);
+            }
+        }
+    }
+
+    for (i=0; i<l; ++i) {
+        for (j=0; j<c; ++j) {
             if (m[i][j] == '.' and foi[i][j])
                 printf("N");
             else
@@ -54,30 +71,31 @@ void resolve2(void) {
         }
         printf("\n");
     }
+
+    return true;
 }
 
 int resolve (int x, int y, int id) {
     int i, j;
 
-    for (i=x; i<n; ++i) {
+    for (i=x; i<l; ++i) {
         if (i==x) j=y;
         else j=0;
 
-        for (; j<n; ++j) {
+        for (; j<c; ++j) {
             if (m[i][j]>'0' && m[i][j]<'5') {
                 break;
             }
         }
-        if (j<n) {
+        if (j<c) {
             break;
         }
     }
     x=i;
     y=j;
 
-    if (i==n) {
-        resolve2();
-        return 1;
+    if (i==l) {
+        return resolve2();
     }
 
     int meta = m[x][y]-'0';
@@ -138,17 +156,17 @@ int main (void) {
     v[4][0] = {0, 1, 2, 3};
 
     while (1) {
-        scanf("%d", &n);
-        if (n == 0)
+        scanf("%d %d", &l, &c);
+        if (l == 0 and c == 0)
             break;
 
-        for (i=0; i<n; ++i) {
+        for (i=0; i<l; ++i) {
             scanf("%s", m[i]);
         }
 
         memset(foi, 0, sizeof(foi));
         if (!resolve(0, 0, 1))
-            puts("NO SOLUTION");
+            puts("IMPOSSIVEL");
     }
 
     return 0;
