@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char buf[25];
+char buf[35];
 
 int main() {
 	while (scanf(" %s", buf) == 1) {
