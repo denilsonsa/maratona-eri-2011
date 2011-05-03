@@ -12,8 +12,8 @@ using namespace std;
 
 
 
-#define MAXN (1000*1000)
-#define MAXM (1000)
+#define MAXN (10000)
+#define MAXM (10000)
 #define INF 0x3f3f3f3f
 #define MAXSTR 15
 
