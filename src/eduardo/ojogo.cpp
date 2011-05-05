@@ -6,10 +6,10 @@
 #include <vector>
 using namespace std;
 
-#define TRACE(x) x
+#define TRACE(x) 
 #define PRINT(x...) TRACE(printf(x))
 
-#define MAX_PESSOAS 1000
+#define MAX_PESSOAS 10010
 
 char acao[30], nome1[30], nome2[30], resto[50];
 int subs[MAX_PESSOAS][MAX_PESSOAS];

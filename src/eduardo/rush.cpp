@@ -68,9 +68,9 @@ int main() {
 
 		PRINT("FluxoMaximo: %d   P: %d\n", FluxoMaximo, P);
 		if (FluxoMaximo < P) {
-			printf("HORARIO RUIM\n");
+			printf("COM GARGALOS\n");
 		} else {
-			printf("HORARIO BOM\n");
+			printf("SEM GARGALOS\n");
 		}
 	}
 	return 0;
