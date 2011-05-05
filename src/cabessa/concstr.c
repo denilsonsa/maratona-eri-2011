@@ -40,8 +40,8 @@ int main()
 		for (i=0; s[i]; i++)
 			assert(s[i]<='z' && s[i] >= 'a');
 		
-		assert(strlen(r)<=MAX);
-		assert(strlen(s)<=MAX);
+		assert(1<=strlen(r) && strlen(r)<=MAX);
+		assert(1<=strlen(s) && strlen(s)<=MAX);
 				
 		strcpy(t1, r);
 		strcat(t1, s);

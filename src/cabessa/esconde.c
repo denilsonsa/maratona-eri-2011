@@ -12,7 +12,7 @@ int main()
 		scanf("%d", &n);
 		if (!n)
 			break;
-		assert(1<=n && n<=MAXN);
+		assert(2<=n && n<=MAXN);
 		soma = 0;
 		for (i=1; i<n; i++)
 		{
