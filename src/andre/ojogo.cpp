@@ -4,41 +4,29 @@
 #include <queue>
 #include <map>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
 vector<string> id2name;
-vector<int> counter;
-vector<int> ult_dia;
 map<string,int> name2id;
+vector<int> counter;
+set< pair<int,int> > counter_ord;
+vector<int> ult_dia;
 map<int, set<int> > followers;
+vector<string> resp;
 
-class Compara {
-    bool reverse;
-
-    public:
-    Compara (const bool& revparam = false) {
-        reverse=revparam;
-    }
-
-    bool operator() (const int& a, const int& b) const {
-        if (reverse) {
-            return counter[a]>counter[b];
-        }
-        return counter[a]<counter[b];
-    }
-};
-
-priority_queue<int, vector<int>, Compara> ranking;
-
-inline int getid (string s) {
+inline int getid (const string s) {
     map<string,int>::iterator it = name2id.find(s);
     int id;
 
     if (it == name2id.end()) {
-        id =name2id[s] = id2name.size();
+        id = id2name.size();
+        
+        name2id[s] = id;
         id2name.push_back(s);
         counter.push_back(0);
+        counter_ord.insert(make_pair(id,0));
         ult_dia.push_back(0);
         followers[id] = set<int>();
     }
@@ -51,64 +39,73 @@ inline int getid (string s) {
 
 inline void lembra_jogo(int dia, int id) {
     if (ult_dia[id] < dia) {
-        ++counter[id];
         ult_dia[id] = dia;
+
+        counter_ord.erase(make_pair(id,counter[id]));
+        ++counter[id];
+        counter_ord.insert(make_pair(id,counter[id]));
     }
 }
 
 int main (void) {
-    int i, n;
+    unsigned i, n;
 
     while (1) {
-        scanf("%d", &n);
+        scanf("%u", &n);
         if (!n) break;
 
         id2name.clear();
         name2id.clear();
         counter.clear();
+        counter_ord.clear();
         ult_dia.clear();
         followers.clear();
+        resp.clear();
 
         for (i=0; i<n; ++i) {
             char cmd[16];
             char a[16], b[16];
-            int ida, idb;
+            int id_a, id_b;
             int dia;
 
             scanf("%d %s", &dia, cmd);
             if (cmd[0]=='S' or cmd[0]=='U') {
                 scanf(" %[^,], %s", a, b);
-                ida = getid(a);
-                idb = getid(b);
+                id_a = getid(a);
+                id_b = getid(b);
 
                 if (cmd[0]=='S') {
-                    followers[idb].insert(ida);
+                    followers[id_b].insert(id_a);
                 }
                 else {
-                    followers[idb].erase(ida);
+                    followers[id_b].erase(id_a);
                 }
             }
             else {
                 scanf("%s", a);
-                ida = getid(a);
-                lembra_jogo(dia, ida);
+                id_a = getid(a);
+                lembra_jogo(dia, id_a);
 
                 set<int>::iterator it;
 
-                for (it = followers[ida].begin(); it != followers[ida].end(); ++it) {
+                for (it = followers[id_a].begin(); it != followers[id_a].end(); ++it) {
                     lembra_jogo(dia, *it);
                 }
             }
         }
 
-        counter.push_back(0x3f3f3f3f);
-        int menor = id2name.size();
-        for (i=0; i<id2name.size(); ++i) {
-            if (counter[i] < counter[menor])
-                menor = i;
+        int menor = counter_ord.begin()->second;
+        while (counter_ord.begin()->second == menor) {
+            resp.push_back(id2name[counter_ord.begin()->first]);
+            counter_ord.erase(counter_ord.begin());
         }
+        sort(resp.begin(), resp.end());
 
-        ...
+        for (i=0; i<resp.size(); ++i) {
+            if (i) printf(" ");
+            printf("%s", resp[i].c_str());
+        }
+        printf("\n");
     }
 
     return 0;
