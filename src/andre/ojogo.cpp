@@ -26,7 +26,7 @@ inline int getid (const string s) {
         name2id[s] = id;
         id2name.push_back(s);
         counter.push_back(0);
-        counter_ord.insert(make_pair(id,0));
+        counter_ord.insert(make_pair(0,id));
         ult_dia.push_back(0);
         followers[id] = set<int>();
     }
@@ -41,9 +41,9 @@ inline void lembra_jogo(int dia, int id) {
     if (ult_dia[id] < dia) {
         ult_dia[id] = dia;
 
-        counter_ord.erase(make_pair(id,counter[id]));
+        counter_ord.erase(make_pair(counter[id],id));
         ++counter[id];
-        counter_ord.insert(make_pair(id,counter[id]));
+        counter_ord.insert(make_pair(counter[id],id));
     }
 }
 
@@ -94,9 +94,9 @@ int main (void) {
             }
         }
 
-        int menor = counter_ord.begin()->second;
-        while (counter_ord.begin()->second == menor) {
-            resp.push_back(id2name[counter_ord.begin()->first]);
+        int menor = counter_ord.begin()->first;
+        while (counter_ord.begin()->first == menor) {
+            resp.push_back(id2name[counter_ord.begin()->second]);
             counter_ord.erase(counter_ord.begin());
         }
         sort(resp.begin(), resp.end());

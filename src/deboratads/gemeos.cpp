@@ -5,6 +5,7 @@
  *      Author: deborasilva
  */
 
+#include <vector>
 #include <algorithm>
 #include <functional>
 #include <stdio.h>
@@ -54,7 +55,7 @@ struct Vert {
 	}
 };
 
-Vert v[MAX];
+vector<Vert> v;
 
 long long ncomb2(long long n) {
 	return (n * (n - 1))/2;
@@ -67,6 +68,8 @@ int main() {
 	while (1) {
 		scanf("%d %d", &n, &m);
 		if (!m && !n) break;
+		v.clear();
+		v.reserve(n);
 		for (int i = 0; i < n; ++i) {
 			v[i].clear();
 			v[i].set(i);
@@ -77,7 +80,7 @@ int main() {
 			v[a-1].set(b-1);
 			v[b-1].set(a-1);
 		}
-		sort(v, v+n);
+		sort(v.begin(), v.end());
 		int neq = 1;
 		long long nc = 0;
 		for (int i = 1; i < n; ++i) {
