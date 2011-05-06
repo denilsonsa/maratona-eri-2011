@@ -11,12 +11,9 @@ using namespace std;
 
 int m, n;
 
-class tipo
-{
-	public:
+typedef struct{
 		int v[MAXN];
-	
-};
+}tipo;
 
 int fc (const void*e1, const void *e2)
 {
@@ -29,7 +26,7 @@ int fc (const void*e1, const void *e2)
 	for (i=0; i<n; i++)
 	{
 		if (t1->v[i] != t2->v[i])
-			return t1->v[i] < t2->v[i];
+			return t1->v[i] - t2->v[i];
 	}
 	return 0;
 }
@@ -52,15 +49,16 @@ int igual(int v1[], int v2[])
 	return 1;
 }
 
+
+
 int main()
 {
 	int i, a, b, j, resp;
-	
+		
 	while (1)
 	{
 	
 		assert(scanf("%d %d", &n, &m)==2);
-		
 		resp = 0;
 		
 		if (n == 0)
@@ -82,7 +80,7 @@ int main()
 		
 		for (i=0; i<n; i++)
 			adj[i].v[i] = 1;
-			
+		
 		qsort(adj, n, sizeof(adj[0]), fc);
 		
 		for (i=0; i<n; )
