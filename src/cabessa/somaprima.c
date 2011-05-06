@@ -5,7 +5,7 @@
 
 #define MAXN (1000*1000)
 
-#define MAXP (MAXN/2)
+#define MAXP (MAXN)
 
 char ehprimo[MAXP];
 int np;
