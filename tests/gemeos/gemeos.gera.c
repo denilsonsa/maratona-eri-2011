@@ -136,12 +136,9 @@ int main()
 	printf("2 5\n");
 	printf("4 5\n");
 	
-	
 
 	gera(MAXN, MAXN*(MAXN-1)/2);
-
 	gera(MAXN, MAXN-1);
-
 	gera(MAXN, MAXN-1);
 	gera(MAXN, MAXN-1);
 	gera(MAXN, MAXN-1);
