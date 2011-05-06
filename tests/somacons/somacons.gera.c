@@ -43,7 +43,7 @@ int main()
 		}
 	}
 
-	for (i=MAXN; i>MAXN-10000; i++)
+	for (i=MAXN; i>MAXN-10000; i--)
 	{
 		printf("%d\n", i);
 	}
