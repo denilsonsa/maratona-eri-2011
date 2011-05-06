@@ -18,11 +18,12 @@ int mrandab(int a, int b)
 }
 
 char s1[MAXN+1], s2[MAXN+1];
+int t1, t2;
 char temp[MAXN+1];
 
 void gera1(int n, int TAM)
 {
-	int i;
+	int i, t;
 	char ini, fim;
 	
 	s1[0] = s2[0] = 0;
@@ -39,13 +40,19 @@ void gera1(int n, int TAM)
 	strcpy(s1, temp);	
 	strcpy(s2, temp);	
 	
+	t = strlen(temp);
+	t1 = t2 = t;
+	
 	for (i=2; i<n/TAM; i++)
 	{
-		strcat(s1,temp);
+
+		strcat(s1+t1,temp);
+		t1+=t;
 	}
 	for (i=2; i<n/TAM/2; i++)
 	{
-		strcat(s2,temp);
+		strcat(s2+t2,temp);
+		t2+=t;
 	}
 	
 	printf("%s %s\n", s1, s2);
@@ -76,7 +83,7 @@ void gera2(int n, int m)
 
 void gera3(int n, int TAM)
 {
-	int i;
+	int i, t;
 	char ini, fim;
 	
 	s1[0] = s2[0] = 0;
@@ -90,16 +97,21 @@ void gera3(int n, int TAM)
 	}
 	temp[TAM] = 0;
 	
+	t = strlen(temp);
 	strcpy(s1, temp);	
-	strcpy(s2, temp);	
+	strcpy(s2, temp);
+	t1 = t;
+	t2 = t;
 	
 	for (i=2; i<n/TAM; i++)
 	{
-		strcat(s1,temp);
+		strcat(s1+t1,temp);
+		t1 += t;
 	}
 	for (i=2; i<n/TAM/2; i++)
 	{
-		strcat(s2,temp);
+		strcat(s2+t2,temp);
+		t2 += t;
 	}
 	
 	printf("%s %s\n", s1, s2);
