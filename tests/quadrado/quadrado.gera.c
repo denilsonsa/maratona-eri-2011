@@ -14,7 +14,9 @@ int mrand()
 
 int mrandab(int a, int b)
 {
-	return a + (mrand() % (b-a+1));
+	int t = a + (mrand() % (b-a+1));
+	assert(a <= t && t <= b);
+	return t;
 }
 
 
@@ -83,7 +85,7 @@ int main()
 	printf("4\n");
 	for (i=0; i<4; i++)
 	{
-		printf("%d %d",mrandab(MINX, MAXX),mrandab(MINX, MAXX));
+		printf("%d %d\n",mrandab(MINX, MAXX),mrandab(MINX, MAXX));
 	}
 
 	printf("4\n");
@@ -93,20 +95,30 @@ int main()
 	printf("1 1\n");
 
 	gera_aleat(MAXN, MINX, MAXX);
-	gera_aleat(MAXN, MINX, MAXX);
+	gera_aleat(MAXN, MINX/20000, MAXX/20000);
+	gera_aleat(MAXN, MINX/10000, MAXX/10000);
+	gera_aleat(MAXN, MINX/5000, MAXX/5000);
+	gera_aleat(MAXN, MINX/2000, MAXX/2000);
 	gera_aleat(MAXN, MINX/1000, MAXX/1000);
-	gera_aleat(MAXN, MINX/1000, MAXX/1000);
-	gera_aleat(MAXN, MINX/100, MAXX/100);
-	gera_aleat(MAXN, MINX/100, MAXX/100);
 	
-	for (i=0; i<20; i++)
+	for (i=0; i<5; i++)
 	{
-		gera_aleat(mrandab(MINN,MAXN), MINX, MAXX);
-		gera_aleat(mrandab(MINN,MAXN), MINX, MAXX);
-		gera_aleat(mrandab(MINN,MAXN), MINX/1000, MAXX/1000);
+		gera_aleat(mrandab(MINN,MAXN), MINX/20000, MAXX/20000);
+		gera_aleat(mrandab(MINN,MAXN), MINX/10000, MAXX/10000);
+		gera_aleat(mrandab(MINN,MAXN), MINX/10000, MAXX/10000);
+		gera_aleat(mrandab(MINN,MAXN), MINX/5000, MAXX/5000);
 		gera_aleat(mrandab(MINN,MAXN), MINX/1000, MAXX/1000);
 		gera_aleat(mrandab(MINN,MAXN), MINX/100, MAXX/100);
-		gera_aleat(mrandab(MINN,MAXN), MINX/100, MAXX/100);
+	}
+	
+	for (i=0; i<5; i++)
+	{
+		gera_aleat(mrandab(MAXN/2,MAXN), MINX/20000, MAXX/20000);
+		gera_aleat(mrandab(MAXN/2,MAXN), MINX/10000, MAXX/10000);
+		gera_aleat(mrandab(MAXN/2,MAXN), MINX/10000, MAXX/10000);
+		gera_aleat(mrandab(MAXN/2,MAXN), MINX/5000, MAXX/5000);
+		gera_aleat(mrandab(MAXN/2,MAXN), MINX/1000, MAXX/1000);
+		gera_aleat(mrandab(MAXN/2,MAXN), MINX/100, MAXX/100);
 	}
 	
 	gera_muito(1);
