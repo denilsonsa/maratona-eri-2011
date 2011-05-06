@@ -11,9 +11,9 @@
 
 using namespace std;
 
-#define MAX 1000
+#define MAX 1024
 #define SI (sizeof(long long))
-#define MAXV (1 + 1000/(SI))
+#define MAXV (1 + 1024/(SI))
 
 struct Vert {
 	long long val[MAXV];
