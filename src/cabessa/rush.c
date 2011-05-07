@@ -133,11 +133,11 @@ int main()
 		
 		if (achei < p)
 		{
-			printf("COM GARGALOS \n");
+			printf("COM GARGALOS\n");
 		}
 		else
 		{
-			printf("SEM GARGALOS \n");
+			printf("SEM GARGALOS\n");
 		}
 	}
 

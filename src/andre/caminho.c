@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define MAX 64
+#define MAX 128
 
 int distancia[MAX][MAX];
 int qualidade[MAX];
@@ -94,11 +94,10 @@ int main(void) {
         sistema[max][max] = -0.1;
         for(i=0; i<n; i++) {
             sistema[i][i] = sistema[i][n] / sistema[i][i];
-            printf("%3.10f ", sistema[i][i]);
             if (sistema[i][i] > sistema[max][max] + ERRO)
                 max = i;
         }
-        printf("\n%d\n", max+1);
+        printf("%d\n", max+1);
     }
 
     return 0;

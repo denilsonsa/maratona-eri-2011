@@ -78,6 +78,6 @@ int main()
 	gera_caso(MAXN);
 	
 
-	printf("0\n");
+	printf("0 0\n");
 	return 0;
 }
