@@ -1,4 +1,3 @@
-syntax: glob
 # Compiled programs and libraries:
 *.exe
 *.o
@@ -30,3 +29,5 @@ syntax: glob
 *.toc
 *.vrb
 prova/prova\.synctex
+prova/prova.synctex
+prova.synctex
